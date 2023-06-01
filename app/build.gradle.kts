@@ -18,6 +18,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.androidx.baselineprofile)
 }
 
 android {
@@ -26,7 +27,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.baselineprofiles_codelab"
-        minSdk = 21
+        minSdk = 28
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -80,6 +81,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.profileinstaller)
+    "baselineProfile"(project(mapOf("path" to ":baselineprofile")))
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -119,4 +122,7 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.compose.ui.test)
+
+    implementation("androidx.profileinstaller:profileinstaller:1.3.0")
+    "baselineProfile"(project(mapOf("path" to ":baselineprofile")))
 }
