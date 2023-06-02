@@ -46,7 +46,6 @@ class BaselineProfileGenerator {
 
             // Start default activity for your app
             pressHome()
-
             startActivityAndWait()
 
             // TODO Write more interactions to optimize advanced journeys of your app.
@@ -61,12 +60,12 @@ class BaselineProfileGenerator {
 //             https://d.android.com/training/testing/other-components/ui-automator
         }
     }
-    fun MacrobenchmarkScope.waitForAsyncContent() {
-        device.wait(Until.hasObject(By.res("snack_list")), 5_000)
-        val contentList = device.findObject(By.res("snack_list"))
-        // Wait until a snack collection item within the list is rendered.
-        contentList.wait(Until.hasObject(By.res("snack_collection")), 5_000)
-    }
+        fun MacrobenchmarkScope.waitForAsyncContent() {
+            device.wait(Until.hasObject(By.res("snack_list")), 5_000)
+            val contentList = device.findObject(By.res("snack_list"))
+            // Wait until a snack collection item within the list is rendered.
+            contentList.wait(Until.hasObject(By.res("snack_collection")), 5_000)
+        }
 
     fun MacrobenchmarkScope.scrollSnackListJourney() {
         val snackList = device.findObject(By.res("snack_list"))

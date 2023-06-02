@@ -30,13 +30,26 @@ android {
 
     targetProjectPath = ":app"
 
+    defaultConfig {
+        testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR"
+    }
+
     testOptions.managedDevices.devices {
         create<ManagedVirtualDevice>("pixel6Api33") {
             device = "Pixel 6"
             apiLevel = 33
-            systemImageSource = "google_apis_playstore"
+            systemImageSource = "aosp"
         }
     }
+
+//    testOptions {
+//        managedDevices {
+//            devices {
+//                register("Xiaomi Redmi Note 8")
+//            }
+//        }
+//    }
+//}
 }
 
 // This is the configuration block for the Baseline Profile plugin.
